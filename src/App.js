@@ -5,7 +5,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       boxes: [],
-      delay: 20,
+      delay: 20
     };
   }
 
@@ -52,7 +52,7 @@ class App extends React.Component {
         await new Promise((resolve) => setTimeout(resolve, this.state.delay));
       }
       tempBoxes[j + 1] = current;
-      this.setState({ boxes: tempBoxes });
+      this.setState({ boxes: tempBoxes});
     }
   }
 
@@ -96,17 +96,13 @@ class App extends React.Component {
       document.getElementById(
         `box-${boxes[i].height}`
       ).style.height = `${boxes[i].height}vh`;
-      document.getElementById(
-        `box-${boxes[i].height}`
-      ).style.background = `rgb(${(boxes[i].height * 2) % 255}, ${
-        (boxes[i].height * 5) % 255
-      }, ${(boxes[i].height * 5) % 255})`;
     }
   }
 
   render() {
     return (
       <div className="main">
+        <span className="title">Sorter</span>
         <div className="pane">
           {this.state.boxes.map((box, idx) => (
             <div className="box" id={`box-${box.height}`} key={idx}></div>
